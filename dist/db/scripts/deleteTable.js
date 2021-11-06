@@ -9,7 +9,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const db = require('../../index');
+const db = require('../index');
+console.log(db);
 const deleteTable = () => __awaiter(void 0, void 0, void 0, function* () {
     const sqlQuery = `DROP TABLE IF EXISTS participants;`;
     try {

@@ -1,5 +1,5 @@
 import { Idb, IParticipant } from '../../types/fakeZoomApi';
-import data from '../../../past-meeting-participants';
+import data from '../../lib/past-meeting-participants';
 
 const db: Idb = require('../index');
 

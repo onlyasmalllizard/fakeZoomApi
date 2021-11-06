@@ -4,7 +4,8 @@ const db: Idb = require('../index');
 
 const createTable = async (): Promise<void> => {
   const sqlQuery: string = `CREATE TABLE IF NOT EXISTS participants (
-    id TEXT PRIMARY KEY,
+    db_id SERIAL PRIMARY KEY,
+    id TEXT,
     name TEXT,
     user_email TEXT
   );`;

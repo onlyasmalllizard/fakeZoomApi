@@ -1,6 +1,7 @@
 import { Idb } from '../../types/fakeZoomApi';
 
-const db: Idb = require('../../index');
+const db: Idb = require('../index');
+console.log(db);
 
 const deleteTable = async (): Promise<void> => {
   const sqlQuery: string = `DROP TABLE IF EXISTS participants;`;

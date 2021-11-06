@@ -9,29 +9,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const past_meeting_participants_1 = require("../../../past-meeting-participants");
 const db = require('../index');
-const populateTable = () => __awaiter(void 0, void 0, void 0, function* () {
-    const sqlQuery = `INSERT INTO participants (
-    id,
-    name,
-    user_email
-  ) VALUES (
-    $1,
-    $2,
-    $3
-  ) RETURNING *;`;
-    const { participants } = past_meeting_participants_1.default;
+const createTable = () => __awaiter(void 0, void 0, void 0, function* () {
+    const sqlQuery = `CREATE TABLE IF NOT EXISTS participants (
+    db_id SERIAL PRIMARY KEY,
+    id TEXT,
+    name TEXT,
+    user_email TEXT
+  );`;
     try {
-        for (let i = 0; i < participants.length; i++) {
-            const { id, name, user_email } = participants[i];
-            const response = yield db.query(sqlQuery, [id, name, user_email]);
-            console.log(response.rows[0]);
-        }
+        const _response = yield db.query(sqlQuery);
+        console.log('Participants table created');
     }
     catch (error) {
         console.log(`${error.name}: ${error.message}`);
     }
 });
-populateTable();
-//# sourceMappingURL=populateTable.js.map
+createTable();
+//# sourceMappingURL=createTable.js.map
