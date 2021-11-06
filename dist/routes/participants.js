@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
 const participants_1 = require("../models/participants");
 const participantsRouter = express.Router();
-participantsRouter.get('/students/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+participantsRouter.get('/person/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
     try {
         const response = yield (0, participants_1.getParticipantsByStudentId)(id);

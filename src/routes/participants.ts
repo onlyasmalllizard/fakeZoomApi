@@ -8,7 +8,7 @@ import {
 
 const participantsRouter = express.Router();
 
-participantsRouter.get('/students/:id', async (req, res): Promise<void> => {
+participantsRouter.get('/person/:id', async (req, res): Promise<void> => {
   const { id } = req.params;
   try {
     const response = await getParticipantsByStudentId(id);
